@@ -2,7 +2,7 @@
     [int]$NumberOfDays
 )
 
-# Function to get Login and logoff records
+# Function Login and logoff records
 function Get-LoginLogoutRecords {
     param (
         [int]$NumberOfDays
@@ -33,7 +33,7 @@ function Get-LoginLogoutRecords {
     return $loginoutsTable
 }
 
-# Function to get Computer start and shut-down records
+#Get a computer function
 function Get-ComputerStartShutdownRecords {
     param (
         [int]$NumberOfDays
@@ -63,7 +63,7 @@ function Get-ComputerStartShutdownRecords {
     return $startShutdownsTable
 }
 
-# Call the functions with the specified number of days
+# Call the functions with number of days
 $loginoutsTable = Get-LoginLogoutRecords -NumberOfDays $NumberOfDays
 $startShutdownsTable = Get-ComputerStartShutdownRecords -NumberOfDays $NumberOfDays
 
