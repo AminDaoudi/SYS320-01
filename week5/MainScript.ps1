@@ -1,4 +1,3 @@
-﻿# Dot-source the script to import the gatherClasses function
 . .\Functions.ps1
 
 # Call the function and capture the output
@@ -31,8 +30,6 @@ $ITSInstructors = $classTable | Where-Object {
     $_."Class Code" -like "DAT*"
 } | Sort-Object "Instructor" -Unique | Select-Object -ExpandProperty "Instructor"
 $ITSInstructors
-
-# Group all the instructors by the number of classes they are teaching
 
 $classTable | Where-Object { $_.Instructor -in $ITSInstructors } |
     Group-Object "Instructor" | 
