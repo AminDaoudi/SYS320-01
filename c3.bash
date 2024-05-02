@@ -21,11 +21,9 @@ table {
 }
 th, td {
   border: 1px solid black;
-  padding: 7px;
+  padding: 6px;
   text-align: left;
 }
-
-
 th {
   background-color: f1f1f1;
 }
@@ -40,19 +38,15 @@ Access logs with IOC indicators :)
 <table>
   <tr>
  </tr>
-
 EOF
-
 while IFS= read -r line; do
     ip=$(echo "$line" | awk '{print $2}')
     datetime=$(echo "$line" | awk '{print $NF}')
     echo "<tr><td>$ip</td><td>$datetime</td><td>$page_accessed</td></tr>" >> /var/www/html/report.html
 done < report.txt
-
 cat << EOF >> /var/www/html/report.html
 </table>
 </body>
 </html>
 EOF
-
 echo "HTML report generated and saved to /var/www/html/report.html"
