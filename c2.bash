@@ -13,6 +13,6 @@ ioc_file="$2"
 #loop
 while IFS= read -r ioc_pattern; do
     grep "$ioc_pattern" "$log_file" | awk '{sub(/^\[/, "", $4); print $1, $4, $7}' >> report.txt
-done < "$ioc_file"
+done < "$ioc.txt"
 
 echo "saved to report.txt"
